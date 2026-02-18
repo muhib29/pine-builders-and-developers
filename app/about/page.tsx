@@ -88,20 +88,7 @@ export default function AboutPage() {
         <section className="py-20 lg:py-28">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
-              <AnimatedSection animation="slide-right">
-                <div className="relative">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-                    <Image
-                      src="/images/services/residential.webp"
-                      alt="Construction work"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  {/* Decorative element */}
-                  <div className="absolute -bottom-6 -right-6 -z-10 h-full w-full rounded-lg border-4 border-primary/20" />
-                </div>
-              </AnimatedSection>
+              
 
               <AnimatedSection animation="slide-left">
                 <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-wider text-primary">
@@ -127,6 +114,31 @@ export default function AboutPage() {
                       </span>
                     </div>
                   ))}
+                </div>
+              </AnimatedSection>
+              <AnimatedSection animation="slide-right">
+                <div className="relative">
+                  <div className="relative h-[600px] w-full overflow-hidden rounded-lg bg-muted shadow-lg">
+                    <Image
+                      src="/images/services/ceo.png"
+                      alt="CEO and Founder"
+                      fill
+                      className="object-contain p-6"
+                      priority
+                    />
+                  </div>
+                  {/* CEO Info Card */}
+                  <div className="relative mt-8 rounded-lg bg-card p-6 text-center shadow-md">
+                    <div className="absolute -top-4 left-1/2 h-8 w-8 -translate-x-1/2 rotate-45 rounded-sm bg-card" />
+                    <h3 className="font-serif text-2xl font-bold text-card-foreground">
+                      CEO & Founder
+                    </h3>
+                    <p className="mt-2 text-sm font-semibold uppercase tracking-wider text-primary">
+                      Pine Builders & Developers
+                    </p>
+                  </div>
+                  {/* Decorative element */}
+                  <div className="absolute -bottom-6 -right-6 -z-10 h-full w-full rounded-lg border-4 border-primary/20" />
                 </div>
               </AnimatedSection>
             </div>
