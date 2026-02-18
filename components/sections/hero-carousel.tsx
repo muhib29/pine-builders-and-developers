@@ -150,7 +150,7 @@ export function HeroCarousel() {
 
   return (
     <section
-      className="relative h-screen w-full overflow-hidden"
+      className="relative h-[70vh] min-h-[400px] w-full overflow-hidden md:h-[80vh] lg:h-screen"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -210,9 +210,9 @@ export function HeroCarousel() {
 
           {/* Content */}
           <div className="relative z-10 flex h-full items-end">
-            <div className="w-full px-4 sm:px-6 lg:px-12 pb-12">
-              <div className="max-w-2xl rounded-2xl p-6 sm:p-8">
-                {/* Tagline — minimal */}
+            <div className="w-full px-4 pl-12 pr-12 sm:pl-12 sm:pr-12 md:px-6 lg:px-12 pb-8 sm:pb-12">
+              <div className="max-w-2xl rounded-2xl p-4 sm:p-6 md:p-8">
+                {/* Tagline — smaller on mobile */}
                 <div
                   className={cn(
                     'overflow-hidden',
@@ -220,16 +220,16 @@ export function HeroCarousel() {
                   )}
                   style={{ animationDelay: '120ms' }}
                 >
-                  <span className="inline-block text-sm font-medium uppercase tracking-[0.2em] text-[#d4af34]">
+                  <span className="inline-block text-xs font-medium uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[#d4af34] md:text-sm">
                     {slide.tagline}
                   </span>
                 </div>
 
-                {/* Heading */}
+                {/* Heading — smaller on mobile */}
                 {index === 0 ? (
                   <h1
                     className={cn(
-                      'font-serif font-bold leading-tight tracking-tight text-white text-2xl sm:text-4xl md:text-5xl lg:text-6xl hero-text-shadow mt-2',
+                      'font-serif font-bold leading-tight tracking-tight text-white text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl hero-text-shadow mt-1.5 sm:mt-2',
                       index === currentSlide ? 'animate-hero-reveal-up' : 'opacity-0'
                     )}
                     style={{ animationDelay: '260ms' }}
@@ -239,7 +239,7 @@ export function HeroCarousel() {
                 ) : (
                   <h2
                     className={cn(
-                      'font-serif font-bold leading-tight tracking-tight text-white text-2xl sm:text-4xl md:text-5xl lg:text-6xl hero-text-shadow mt-2',
+                      'font-serif font-bold leading-tight tracking-tight text-white text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl hero-text-shadow mt-1.5 sm:mt-2',
                       index === currentSlide ? 'animate-hero-reveal-up' : 'opacity-0'
                     )}
                     style={{ animationDelay: '260ms' }}
@@ -248,10 +248,10 @@ export function HeroCarousel() {
                   </h2>
                 )}
 
-                {/* Subheading */}
+                {/* Subheading — smaller on mobile */}
                 <p
                   className={cn(
-                    'mt-6 max-w-xl text-lg leading-relaxed text-white/85 sm:text-xl hero-text-shadow',
+                    'mt-4 max-w-xl text-base leading-relaxed text-white/85 sm:mt-6 sm:text-lg md:text-xl hero-text-shadow',
                     index === currentSlide ? 'animate-hero-reveal-up' : 'opacity-0'
                   )}
                   style={{ animationDelay: '420ms' }}
@@ -259,10 +259,10 @@ export function HeroCarousel() {
                   {slide.subheading}
                 </p>
 
-                {/* CTA Buttons */}
+                {/* CTA — smaller on mobile */}
                 <div
                   className={cn(
-                    'mt-10 flex flex-wrap gap-4',
+                    'mt-6 flex flex-wrap gap-3 sm:mt-10 sm:gap-4',
                     index === currentSlide ? 'animate-hero-reveal-up' : 'opacity-0'
                   )}
                   style={{ animationDelay: '580ms' }}
@@ -270,11 +270,11 @@ export function HeroCarousel() {
                   <Button
                     asChild
                     size="lg"
-                    className="group h-14 bg-[#d4af34] px-8 text-base font-semibold text-[#061228] shadow-lg transition-all duration-300 hover:bg-[#c4a02a] hover:shadow-xl hover:scale-[1.02]"
+                    className="group h-10 bg-[#d4af34] px-5 text-sm font-semibold text-[#061228] shadow-lg transition-all duration-300 hover:bg-[#c4a02a] hover:shadow-xl hover:scale-[1.02] sm:h-12 sm:px-6 md:h-14 md:px-8 md:text-base"
                   >
                     <Link href={slide.ctaLink}>
                       {slide.ctaText}
-                      <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                      <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-1 sm:ml-2 sm:h-5 sm:w-5" />
                     </Link>
                   </Button>
                   {/* <Button
@@ -292,22 +292,22 @@ export function HeroCarousel() {
         </div>
       ))}
 
-      {/* Navigation Arrows — minimal, smooth hover */}
+      {/* Navigation Arrows — compact on mobile, larger on desktop */}
       <button
         onClick={prevSlide}
         disabled={isAnimating}
-        className="group absolute left-4 top-1/2 z-30 -translate-y-1/2 rounded-full border border-white/20 bg-[#061228]/60 p-3 backdrop-blur-md transition-all duration-300 hover:border-[#d4af34] hover:bg-[#d4af34] hover:text-[#061228] disabled:opacity-50 sm:left-8 sm:p-4"
+        className="group absolute left-2 top-1/2 z-30 flex -translate-y-1/2 rounded-full border border-white/20 bg-[#061228]/60 p-2 backdrop-blur-md transition-all duration-300 hover:border-[#d4af34] hover:bg-[#d4af34] hover:text-[#061228] disabled:opacity-50 sm:left-4 sm:p-2.5 md:left-8 md:p-4"
         aria-label="Previous slide"
       >
-        <ChevronLeft className="h-5 w-5 text-white transition-colors group-hover:text-[#061228] sm:h-6 sm:w-6" />
+        <ChevronLeft className="h-4 w-4 text-white transition-colors group-hover:text-[#061228] sm:h-5 sm:w-5 md:h-6 md:w-6" />
       </button>
       <button
         onClick={nextSlide}
         disabled={isAnimating}
-        className="group absolute right-4 top-1/2 z-30 -translate-y-1/2 rounded-full border border-white/20 bg-[#061228]/60 p-3 backdrop-blur-md transition-all duration-300 hover:border-[#d4af34] hover:bg-[#d4af34] hover:text-[#061228] disabled:opacity-50 sm:right-8 sm:p-4"
+        className="group absolute right-2 top-1/2 z-30 flex -translate-y-1/2 rounded-full border border-white/20 bg-[#061228]/60 p-2 backdrop-blur-md transition-all duration-300 hover:border-[#d4af34] hover:bg-[#d4af34] hover:text-[#061228] disabled:opacity-50 sm:right-4 sm:p-2.5 md:right-8 md:p-4"
         aria-label="Next slide"
       >
-        <ChevronRight className="h-5 w-5 text-white transition-colors group-hover:text-[#061228] sm:h-6 sm:w-6" />
+        <ChevronRight className="h-4 w-4 text-white transition-colors group-hover:text-[#061228] sm:h-5 sm:w-5 md:h-6 md:w-6" />
       </button>
 
       {/* Slide Indicators */}

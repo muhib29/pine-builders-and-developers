@@ -182,7 +182,7 @@ export const contactData = {
     'LSA-1 to LSA-12, 1st–12th Floor, Street-2, Row-1, Gulshan-e-Iqbal, Block-5, Scheme-24, Karachi, Pakistan',
   officeHours: 'Monday – Friday: 8:00 AM – 6:00 PM',
   socialLinks: {
-    facebook: 'https://www.facebook.com/profile.php?id=61588158037232',
+    facebook: 'https://www.facebook.com/pinebuilders/',
     instagram: 'https://www.instagram.com/pinebuilderdeveloper',
     youtube: 'https://www.youtube.com/@PINEBUILDERSDEVELOPERS',
     tiktok: 'https://www.tiktok.com/@pine.builders.and?_r=1&_t=ZS-940IeMG3NhQ',

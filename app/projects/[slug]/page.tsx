@@ -119,28 +119,30 @@ export default async function ProjectDetailPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <main>
-        {/* Hero Section */}
-        <section className="relative min-h-[70vh] flex items-end overflow-hidden">
-          <div className="absolute inset-0 -z-10">
+        {/* Hero — aspect-[4/3] on mobile for full visibility; tall min-h on laptop for impact */}
+        <section className="relative overflow-hidden">
+          <div className="relative w-full aspect-[4/3] min-h-[260px] sm:min-h-[320px] md:aspect-auto md:min-h-[55vh] lg:min-h-[65vh]">
             <Image
               src={project.imageSrc || "/placeholder.svg"}
               alt={project.title}
               fill
-              className="object-cover"
+              className="object-cover mt-5 md:mt-18"
               priority
+              sizes="100vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/40 to-transparent" />
           </div>
-          <div className="mx-auto w-full max-w-7xl px-4 pb-16 pt-40 sm:px-6 lg:px-8">
+          <div className="absolute inset-0 flex items-end">
+            <div className="mx-auto w-full max-w-7xl px-4 pb-16 pt-40 sm:px-6 lg:px-8">
             <AnimatedSection>
               <Link
                 href="/projects"
-                className="mb-6 inline-flex items-center gap-2 text-sm text-secondary-foreground/80 transition-colors hover:text-primary"
+                className="-mb-16 inline-flex items-center gap-2 text-sm text-secondary-foreground/80 transition-colors hover:text-primary md:mb-6 mb-0"
               >
-                <ArrowLeft className="h-4 w-4" />
+                <ArrowLeft className="h-4 w-4 " />
                 Back to Projects
               </Link>
-              <div className="flex flex-wrap items-center gap-4 text-sm text-secondary-foreground/80">
+              <div className=" flex-wrap items-center gap-4 text-sm text-secondary-foreground/80  md:flex hidden">
                 {project.category && (
                   <span className="flex items-center gap-1.5">
                     <Tag className="h-4 w-4 text-primary" />
@@ -164,6 +166,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 {project.title}
               </h1>
             </AnimatedSection>
+            </div>
           </div>
         </section>
 

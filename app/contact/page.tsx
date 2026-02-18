@@ -216,7 +216,7 @@ export default function ContactPage() {
                     <div className="absolute bottom-0 left-0 z-10 h-32 w-full pointer-events-none" />
 
                     {/* Professional Address Card */}
-                    <div className="absolute z-20 bottom-4 left-4 bg-black/70 rounded-lg p-4 max-w-xs shadow-xl">
+                    {/* <div className="absolute z-20 bottom-4 left-4 bg-black/70 rounded-lg p-4 max-w-xs shadow-xl">
                       <div className="flex items-start gap-3">
                         <MapPin className="mt-1 h-6 w-6 text-white" />
                         <div>
@@ -231,7 +231,7 @@ export default function ContactPage() {
                           </p>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
 
                   {/* Why Choose Us */}
