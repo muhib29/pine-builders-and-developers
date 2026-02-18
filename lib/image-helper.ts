@@ -83,10 +83,11 @@ export function getPictureSourceProps(basePath: string) {
     .map(w => `${base}-w${w}.avif ${w}w`)
     .join(', ');
 
-  // WebP sources (good compression)
-  const webpSrcSet = RESPONSIVE_WIDTHS
-    .map(w => `${base}-w${w}.webp ${w}w`)
-    .join(', ');
+  // WebP sources (include original so images always load when variants are missing)
+  const webpSrcSet = [
+    ...RESPONSIVE_WIDTHS.map(w => `${base}-w${w}.webp ${w}w`),
+    `${basePath} 2000w`,
+  ].join(', ');
 
   return {
     avif: { srcSet: avifSrcSet, type: 'image/avif' },
