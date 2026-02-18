@@ -208,11 +208,12 @@ export function HeroCarousel() {
             }}
           />
 
-          {/* Content */}
-          <div className="relative z-10 flex h-full items-end">
-            <div className="w-full px-4 pl-12 pr-12 sm:pl-12 sm:pr-12 md:px-6 lg:px-12 pb-8 sm:pb-12">
-              <div className="max-w-2xl rounded-2xl p-4 sm:p-6 md:p-8">
-                {/* Tagline — smaller on mobile */}
+          {/* Content — left bottom */}
+          <div className="relative z-10 flex h-full items-end justify-start">
+          <div className="w-full max-w-2xl pl-6 pr-4 pb-12 sm:pl-12 sm:pr-12 md:px-6 lg:px-12 sm:pb-12">
+
+              <div className="rounded-2xl p-4 text-left sm:p-6 md:p-8 md:max-w-2xl">
+                {/* Tagline */}
                 <div
                   className={cn(
                     'overflow-hidden',
@@ -225,7 +226,7 @@ export function HeroCarousel() {
                   </span>
                 </div>
 
-                {/* Heading — smaller on mobile */}
+                {/* Heading */}
                 {index === 0 ? (
                   <h1
                     className={cn(
@@ -248,10 +249,10 @@ export function HeroCarousel() {
                   </h2>
                 )}
 
-                {/* Subheading — smaller on mobile */}
+                {/* Subheading — hidden on mobile, shown from md */}
                 <p
                   className={cn(
-                    'mt-4 max-w-xl text-base leading-relaxed text-white/85 sm:mt-6 sm:text-lg md:text-xl hero-text-shadow',
+                    'hidden mt-4 max-w-xl text-base leading-relaxed text-white/85 md:block sm:mt-6 sm:text-lg md:text-xl hero-text-shadow',
                     index === currentSlide ? 'animate-hero-reveal-up' : 'opacity-0'
                   )}
                   style={{ animationDelay: '420ms' }}
@@ -259,10 +260,10 @@ export function HeroCarousel() {
                   {slide.subheading}
                 </p>
 
-                {/* CTA — smaller on mobile */}
+                {/* CTA — small on mobile */}
                 <div
                   className={cn(
-                    'mt-6 flex flex-wrap gap-3 sm:mt-10 sm:gap-4',
+                    'mt-4 flex flex-wrap gap-2 sm:mt-6 md:mt-10 md:gap-4',
                     index === currentSlide ? 'animate-hero-reveal-up' : 'opacity-0'
                   )}
                   style={{ animationDelay: '580ms' }}
@@ -270,11 +271,11 @@ export function HeroCarousel() {
                   <Button
                     asChild
                     size="lg"
-                    className="group h-10 bg-[#d4af34] px-5 text-sm font-semibold text-[#061228] shadow-lg transition-all duration-300 hover:bg-[#c4a02a] hover:shadow-xl hover:scale-[1.02] sm:h-12 sm:px-6 md:h-14 md:px-8 md:text-base"
+                    className="group h-8 bg-[#d4af34] px-3.5 text-xs font-semibold text-[#061228] shadow-lg transition-all duration-300 hover:bg-[#c4a02a] hover:shadow-xl hover:scale-[1.02] sm:h-10 sm:px-4 sm:text-sm md:h-14 md:px-8 md:text-base"
                   >
                     <Link href={slide.ctaLink}>
                       {slide.ctaText}
-                      <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-1 sm:ml-2 sm:h-5 sm:w-5" />
+                      <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1 sm:ml-1.5 sm:h-4 sm:w-4 md:ml-2 md:h-5 md:w-5" />
                     </Link>
                   </Button>
                   {/* <Button
@@ -311,7 +312,7 @@ export function HeroCarousel() {
       </button>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 z-30 flex -translate-x-1/2 items-center gap-3 sm:bottom-12">
+      <div className="absolute bottom-8  left-1/2 z-30 flex -translate-x-1/2 items-center gap-3 sm:bottom-12">
         {slides.map((_, index) => (
           <button
             key={index}
