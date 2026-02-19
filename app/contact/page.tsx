@@ -141,10 +141,11 @@ export default function ContactPage() {
               {/* Map & Additional Info */}
               <AnimatedSection animation="slide-left">
                 <div className="space-y-8">
-{/* Lazy-load Google Map: show static image and button, load iframe after click */}
-<LazyMap />
-
-{/* Why Choose Us */}
+                  {/* Responsive Map Container */}
+                  <div className="w-full max-w-xl mx-auto rounded-lg overflow-hidden shadow bg-card border border-border/30">
+                    <LazyMap />
+                  </div>
+                  {/* Why Choose Us */}
                   <div className="rounded-lg bg-card p-8 shadow-sm">
                     <h3 className="font-serif text-xl font-semibold text-card-foreground">
                       Why Choose Pine Builders and Developers?
