@@ -2,6 +2,7 @@ import React from "react"
 import type { Metadata, Viewport } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { Toaster } from 'sonner'
 import './globals.css'
 import WhatsAppFAB from '../components/ui/whatsapp-fab'
 import { contactData } from '@/lib/data'
@@ -201,8 +202,12 @@ export default function RootLayout({
         {/* Preconnect to Google Fonts CDN for faster font loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Preload LCP hero image only - first visible slide */}
+        {/* Preload all hero images for LCP and carousel transitions */}
         <link rel="preload" as="image" href="/images/hero/hero-7.webp" type="image/webp" />
+        <link rel="preload" as="image" href="/images/hero/hero-6.webp" type="image/webp" />
+        <link rel="preload" as="image" href="/images/hero/hero-9.webp" type="image/webp" />
+        <link rel="preload" as="image" href="/images/hero/hero-2.webp" type="image/webp" />
+        <link rel="preload" as="image" href="/images/hero/hero-4.webp" type="image/webp" />
       </head>
       <body className="font-sans antialiased">
         <script
@@ -215,6 +220,7 @@ export default function RootLayout({
         />
         {children}
         <WhatsAppFAB />
+        <Toaster />
         <Analytics />
       </body>
     </html>

@@ -70,9 +70,11 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.9",
     "@types/node": "^22",
+    "@types/nodemailer": "^7.0.10",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "baseline-browser-mapping": "^2.9.19",
+    "nodemailer": "^6.10.1",
     "postcss": "^8.5",
     "sharp": "^0.33.0",
     "tailwindcss": "^4.1.9",

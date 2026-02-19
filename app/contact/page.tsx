@@ -1,5 +1,7 @@
+// removed 'use client' to allow metadata export
 import type { Metadata } from 'next'
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react'
+// Removed useState; no client hooks in this file
 import { Navbar } from '@/components/layout/navbar'
 import { Footer } from '@/components/layout/footer'
 import { AnimatedSection } from '@/components/ui/animated-section'
@@ -8,6 +10,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { contactData } from '@/lib/data'
+import ContactForm from '@/components/contact/contact-form'
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -54,6 +57,7 @@ const contactInfo = [
   },
 ]
 
+import LazyMap from '@/components/contact/lazy-map'
 
 export default function ContactPage() {
   return (
@@ -83,7 +87,8 @@ export default function ContactPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {contactInfo.map((item, index) => (
-                <AnimatedSection
+       
+       <AnimatedSection
                   key={item.title}
                   animation="fade-up"
                   delay={index * 100}
@@ -129,112 +134,17 @@ export default function ContactPage() {
                     Fill out the form below and we will get back to you within 24
                     hours.
                   </p>
-                  <form className="mt-8 space-y-6">
-                    <div className="grid gap-6 sm:grid-cols-2">
-                      <div className="space-y-2">
-                        <Label htmlFor="firstName">First Name</Label>
-                        <Input
-                          id="firstName"
-                          placeholder="John"
-                          className="bg-background"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="lastName">Last Name</Label>
-                        <Input
-                          id="lastName"
-                          placeholder="Doe"
-                          className="bg-background"
-                        />
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="john@example.com"
-                        className="bg-background"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Phone Number</Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        placeholder="+1 (234) 567-890"
-                        className="bg-background"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="projectType">Project Type</Label>
-                      <select
-                        id="projectType"
-                        className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                      >
-                        <option value="">Select project type</option>
-                        <option value="residential">Residential</option>
-                        <option value="commercial">Commercial</option>
-                        <option value="industrial">Industrial</option>
-                        <option value="renovation">Renovation</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="message">Message</Label>
-                      <Textarea
-                        id="message"
-                        placeholder="Tell us about your project..."
-                        rows={5}
-                        className="bg-background resize-none"
-                      />
-                    </div>
-                    <Button
-                      type="submit"
-                      size="lg"
-                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-                    >
-                      <Send className="mr-2 h-4 w-4" />
-                      Send Message
-                    </Button>
-                  </form>
+                  <ContactForm />
                 </div>
               </AnimatedSection>
 
               {/* Map & Additional Info */}
               <AnimatedSection animation="slide-left">
                 <div className="space-y-8">
-                  {/* Map Placeholder */}
-                  <div className="relative aspect-video overflow-hidden rounded-lg bg-secondary">
-                    {/* Google Map */}
-                    <iframe
-                      src="https://www.google.com/maps?q=LSA-1%20to%20LSA-12%2C%20Street-2%2C%20Row-1%2C%20Gulshan-e-Iqbal%2C%20Karachi&output=embed"
-                      className="absolute inset-0 h-full w-full border-0"
-                      loading="lazy"
-                      title="Office Location"
-                    />
-                    <div className="absolute bottom-0 left-0 z-10 h-32 w-full pointer-events-none" />
+{/* Lazy-load Google Map: show static image and button, load iframe after click */}
+<LazyMap />
 
-                    {/* Professional Address Card */}
-                    {/* <div className="absolute z-20 bottom-4 left-4 bg-black/70 rounded-lg p-4 max-w-xs shadow-xl">
-                      <div className="flex items-start gap-3">
-                        <MapPin className="mt-1 h-6 w-6 text-white" />
-                        <div>
-                          <p className="font-semibold text-white">
-                            LSA-1 to LSA-12, 1st–12th Floor
-                          </p>
-                          <p className="text-white/90 text-sm">
-                            Street-2, Row-1, Gulshan-e-Iqbal, Block-5
-                          </p>
-                          <p className="text-white/90 text-sm">
-                            Scheme-24, Karachi, Pakistan
-                          </p>
-                        </div>
-                      </div>
-                    </div> */}
-                  </div>
-
-                  {/* Why Choose Us */}
+{/* Why Choose Us */}
                   <div className="rounded-lg bg-card p-8 shadow-sm">
                     <h3 className="font-serif text-xl font-semibold text-card-foreground">
                       Why Choose Pine Builders and Developers?

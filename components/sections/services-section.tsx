@@ -1,8 +1,8 @@
 'use client'
 
-import React from "react"
 
-import { Home, Building2, Factory, Paintbrush } from 'lucide-react'
+import React from "react"
+import { Home, Building2, Factory, Paintbrush, CheckCircle } from 'lucide-react'
 import { SectionHeader } from './section-header'
 import { AnimatedSection } from '@/components/ui/animated-section'
 
@@ -23,10 +23,19 @@ const iconMap: Record<string, React.ElementType> = {
   paintbrush: Paintbrush,
 }
 
+const highlights = [
+  'Over 25 years of industry experience',
+  'Free consultation and detailed quotes',
+  'Licensed and fully insured professionals',
+  'On-time project delivery guaranteed',
+  'Transparent communication throughout',
+]
+
 export function ServicesSection({ services }: ServicesSectionProps) {
   return (
-    <section className="home-section bg-muted/40 py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="relative bg-gradient-to-br from-[#f8fafc] via-[#f3f4f6] to-[#fffbe6] py-24 lg:py-32 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none opacity-30" style={{background: 'radial-gradient(circle at 80% 20%, #d4af34 0%, transparent 60%)'}} />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 z-10">
         <AnimatedSection scale>
           <SectionHeader
             label="What We Do"
@@ -35,23 +44,24 @@ export function ServicesSection({ services }: ServicesSectionProps) {
           />
         </AnimatedSection>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mt-12">
           {services.map((service, index) => {
             const IconComponent = iconMap[service.icon] || Building2
             return (
               <AnimatedSection
                 key={service.title}
                 animation="fade-up"
-                delay={index * 80}
+                delay={index * 100}
               >
-                <div className="group rounded-xl border border-border/50 bg-card p-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:rotate-0.5 hover:border-[#d4af34]/25 hover:shadow-lg hover:shadow-[#061228]/06">
-                  <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-[#e6d39b]/10 to-[#e6d39b]/05 text-[#d4af34] transition-all duration-400 group-hover:from-[#d4af34] group-hover:to-[#b88f1f] group-hover:text-[#061228] icon-float">
-                    <IconComponent className="h-7 w-7" />
+                <div className="group rounded-2xl border border-[#f3e7c1] bg-white p-8 shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-[#d4af34] flex flex-col items-center text-center">
+                  <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#fffbe6] to-[#f3e7c1] text-[#d4af34] shadow group-hover:from-[#d4af34] group-hover:to-[#b88f1f] group-hover:text-white transition-all">
+                    <IconComponent className="h-8 w-8" />
                   </div>
-                  <h3 className="mb-3 font-serif text-lg font-semibold text-foreground">
+                  <h3 className="mb-2 font-serif text-xl font-bold text-[#061228] tracking-tight">
                     {service.title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
+                  <div className="w-10 h-1 bg-[#d4af34] rounded-full mb-3 mx-auto opacity-60" />
+                  <p className="text-base leading-relaxed text-[#6b7280]">
                     {service.description}
                   </p>
                 </div>
@@ -59,78 +69,43 @@ export function ServicesSection({ services }: ServicesSectionProps) {
             )
           })}
         </div>
-        <div className="mt-16 space-y-12">
-          <div className="space-y-4">
-            <h2 className="font-serif text-3xl font-bold text-foreground">
-              Explore Our Premier Offerings with Pine Builders & Developers
-            </h2>
-            <h3 className="text-xl font-semibold text-[#d4af34]">
-              Buy Shops, Showrooms, and Apartments in Karachi
-            </h3>
-            <p className="text-base leading-relaxed text-muted-foreground max-w-4xl">
-              Searching for top-tier commercial or residential real estate in Karachi? Roomi Builders & Developers offers an extensive range of prime properties, including shops, showrooms, luxury flats, and modern apartments, all designed to meet diverse investment needs and lifestyle preferences.
-            </p>
-          </div>
 
-          <div className="space-y-4">
-            <h3 className="text-2xl font-semibold text-foreground">
-              Discover Prime Business & Residential Locations
-            </h3>
-            <p className="text-base leading-relaxed text-muted-foreground max-w-4xl">
-              Our selection includes strategically located business spaces ideal for thriving enterprises and upscale residential properties perfect for contemporary living. With meticulously designed properties spread across Karachi, we ensure high value, convenience, and premium quality. Whether you're looking for a new business location or your dream home, Roomi Builders provides exceptional opportunities tailored to your needs.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            <h3 className="text-2xl font-semibold text-foreground">
-              Browse Our Listings for the Best Property Investment Opportunities
-            </h3>
-            <p className="text-base leading-relaxed text-muted-foreground max-w-4xl">
-              Find your ideal property in Karachi today by exploring our comprehensive listings. Experience firsthand the excellence of Roomi Builders & Developers, where every property is crafted to meet the highest standards of quality and design.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            <h3 className="text-2xl font-semibold text-foreground">
-              Residential Plots & Commercial Plots for Sale
-            </h3>
-            <p className="text-base leading-relaxed text-muted-foreground max-w-4xl">
-              Invest in your future with Roomi Builders & Developers' prime residential and commercial plots for sale in Karachi. We offer opportunities in high-demand locations, including Malir Cantonment, providing promising returns and significant growth potential. Our plots are perfect for both investors and homebuyers looking to capitalize on Karachi's booming real estate market.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            <h3 className="text-2xl font-semibold text-foreground">
-              High-Rise and Gated Community Apartments
-            </h3>
-            <p className="text-base leading-relaxed text-muted-foreground max-w-4xl">
-              Experience urban living at its finest with our high-rise and gated community apartments in Karachi. Our properties offer amenities-rich living spaces designed for comfort and convenience, ideal for families and professionals. Enjoy modern features and secure environments that cater to a sophisticated lifestyle.
-            </p>
-          </div>
-
-          <div className="space-y-4 border-t border-border/30 pt-8">
-            <h3 className="text-2xl font-semibold text-foreground">
-              Why Choose Roomi Builders & Developers?
-            </h3>
-            <div className="space-y-3">
-              <div>
-                <h4 className="font-semibold text-foreground mb-1">Construction Excellence</h4>
-                <p className="text-base leading-relaxed text-muted-foreground">
-                  We are committed to quality and craftsmanship, ensuring every project reflects superior building standards and meticulous attention to detail.
-                </p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-foreground mb-1">Master Builders</h4>
-                <p className="text-base leading-relaxed text-muted-foreground">
-                  With years of expertise, Roomi Builders is recognized as a leading name in Karachi's real estate industry. Our reputation for delivering exceptional results makes us the trusted choice for discerning clients.
-                </p>
-              </div>
+        <div className="mt-24 grid gap-12 lg:grid-cols-2">
+          <AnimatedSection animation="slide-right">
+            <div className="rounded-2xl bg-white/90 p-10 shadow-lg border border-[#f3e7c1] flex flex-col justify-center h-full">
+              <h2 className="font-serif text-3xl font-bold text-[#061228] mb-4">
+                Why Choose Pine Builders & Developers?
+              </h2>
+              <ul className="space-y-4 mb-6">
+                {highlights.map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-lg text-[#6b7280]">
+                    <CheckCircle className="h-5 w-5 text-[#d4af34] flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-base text-[#444]">
+                We are committed to quality and craftsmanship, ensuring every project reflects superior building standards and meticulous attention to detail. With years of expertise, Pine Builders is recognized as a leading name in Karachi's real estate industry. Our reputation for delivering exceptional results makes us the trusted choice for discerning clients.
+              </p>
             </div>
-          </div>
-
-          <p className="text-lg font-semibold text-[#d4af34] pt-4 border-t border-border/30">
-            Explore, Invest, and Thrive with Pine Builders & Developers – Your Gateway to Premier Real Estate in Karachi.
-          </p>
+          </AnimatedSection>
+          <AnimatedSection animation="slide-left">
+            <div className="rounded-2xl bg-gradient-to-br from-[#fffbe6] to-[#f3e7c1] p-10 shadow-lg border border-[#f3e7c1] flex flex-col justify-center h-full">
+              <h3 className="text-2xl font-semibold text-[#d4af34] mb-2">
+                Explore Our Premier Offerings
+              </h3>
+              <ul className="list-disc pl-5 space-y-2 text-[#6b7280] text-base">
+                <li>Buy Shops, Showrooms, and Apartments in Karachi</li>
+                <li>Discover Prime Business & Residential Locations</li>
+                <li>Residential & Commercial Plots for Sale</li>
+                <li>High-Rise and Gated Community Apartments</li>
+              </ul>
+              <p className="mt-6 text-base text-[#444]">
+                Searching for top-tier commercial or residential real estate in Karachi? Pine Builders & Developers offers an extensive range of prime properties, including shops, showrooms, luxury flats, and modern apartments, all designed to meet diverse investment needs and lifestyle preferences. Find your ideal property today and experience firsthand the excellence of Pine Builders & Developers.
+              </p>
+              <a href="/projects" className="mt-8 inline-block px-8 py-3 rounded-full bg-[#d4af34] text-white font-semibold shadow hover:bg-[#b88f1f] transition-all text-lg">Browse Our Listings</a>
+            </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>
