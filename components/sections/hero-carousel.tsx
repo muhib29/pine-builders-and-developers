@@ -118,6 +118,9 @@ const slides: Slide[] = [
   const [isAnimating, setIsAnimating] = useState(false)
   const [direction, setDirection] = useState<'left' | 'right'>('right')
   const [isPaused, setIsPaused] = useState(false)
+  // Defer loading prev/next slide images on mobile until after LCP
+  const [deferNonLcpImages, setDeferNonLcpImages] = useState(true)
+  const [hasMounted, setHasMounted] = useState(false)
 
   // Custom hook for media query
   const isMobile = useIsMobile()
@@ -161,6 +164,16 @@ const slides: Slide[] = [
     setCurrentSlide(0)
   }, [filteredSlides.length])
 
+  useEffect(() => {
+    setHasMounted(true)
+  }, [])
+
+  // On mobile: allow prev/next images to load only after LCP window (~2.5s)
+  useEffect(() => {
+    const t = setTimeout(() => setDeferNonLcpImages(false), 2500)
+    return () => clearTimeout(t)
+  }, [])
+
   return (
     <section
       className="relative h-[70vh] min-h-[400px] w-full overflow-hidden md:h-[80vh] lg:h-screen"
@@ -202,9 +215,13 @@ const slides: Slide[] = [
               index === currentSlide && 'scale-[1.06]'
             )}
           >
-            {(index === currentSlide ||
-              index === (currentSlide + 1) % slides.length ||
-              index === (currentSlide - 1 + slides.length) % slides.length) && (
+            {(
+              index === currentSlide ||
+              (hasMounted &&
+                (!isMobile || !deferNonLcpImages) &&
+                (index === (currentSlide + 1) % filteredSlides.length ||
+                  index === (currentSlide - 1 + filteredSlides.length) % filteredSlides.length))
+            ) && (
               <HeroImage
                 src={slide.image || '/placeholder.svg'}
                 alt={slide.heading}

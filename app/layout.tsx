@@ -101,11 +101,13 @@ const webSiteJsonLd = {
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  display: 'swap',
 })
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
@@ -202,11 +204,8 @@ export default function RootLayout({
         {/* Preconnect to Google Fonts CDN for faster font loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Preload all hero images for LCP and carousel transitions */}
+        {/* Preload only LCP image - reduces mobile bandwidth competition */}
         <link rel="preload" as="image" href="/images/hero/hero-7.webp" type="image/webp" />
-        <link rel="preload" as="image" href="/images/hero/hero-6.webp" type="image/webp" />
-        <link rel="preload" as="image" href="/images/hero/hero-9.webp" type="image/webp" />
-        <link rel="preload" as="image" href="/images/hero/hero-2.webp" type="image/webp" />
         {/* Inline critical CSS for navbar and hero section */}
         <style>
           {`
@@ -255,7 +254,6 @@ export default function RootLayout({
             }
           `}
         </style>
-        <link rel="preload" as="image" href="/images/hero/hero-4.webp" type="image/webp" />
       </head>
       <body className="font-sans antialiased">
         <script

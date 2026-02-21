@@ -12,6 +12,8 @@ interface HeroImageProps {
 
 /**
  * Hero image using Next.js <Image> for LCP and responsive optimization.
+ * - No blur placeholder on LCP image (avoids decode delay on mobile)
+ * - Aggressive mobile sizes for smaller initial payload
  */
 export function HeroImage({ src, alt, className, priority }: HeroImageProps) {
   return (
@@ -19,14 +21,13 @@ export function HeroImage({ src, alt, className, priority }: HeroImageProps) {
       src={src}
       alt={alt}
       fill
-      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
       priority={priority}
       className={cn('absolute inset-0 size-full object-cover', className)}
-      quality={85}
+      quality={priority ? 85 : 75}
       loading={priority ? 'eager' : 'lazy'}
       fetchPriority={priority ? 'high' : 'auto'}
-      placeholder="blur"
-      blurDataURL="/images/hero/hero-7.webp"
+      placeholder="empty"
     />
   )
 }
