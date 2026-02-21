@@ -207,6 +207,54 @@ export default function RootLayout({
         <link rel="preload" as="image" href="/images/hero/hero-6.webp" type="image/webp" />
         <link rel="preload" as="image" href="/images/hero/hero-9.webp" type="image/webp" />
         <link rel="preload" as="image" href="/images/hero/hero-2.webp" type="image/webp" />
+        {/* Inline critical CSS for navbar and hero section */}
+        <style>
+          {`
+            .navbar {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              z-index: 50;
+              background: var(--background, #fff);
+              box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+              transition: background 0.3s;
+            }
+            .hero {
+              min-height: 60vh;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: relative;
+              overflow: hidden;
+              background: var(--secondary, #061228);
+              color: var(--primary-foreground, #fff);
+            }
+            .hero-heading {
+              font-size: 2.5rem;
+              font-weight: 700;
+              margin-bottom: 1rem;
+            }
+            .hero-subheading {
+              font-size: 1.25rem;
+              font-weight: 400;
+              margin-bottom: 2rem;
+            }
+            .hero-cta {
+              display: inline-block;
+              padding: 0.75rem 2rem;
+              background: var(--golden, #d4af34);
+              color: var(--primary-foreground, #fff);
+              border-radius: 0.5rem;
+              font-weight: 600;
+              text-decoration: none;
+              transition: background 0.2s;
+            }
+            .hero-cta:hover {
+              background: #bfa23a;
+            }
+          `}
+        </style>
         <link rel="preload" as="image" href="/images/hero/hero-4.webp" type="image/webp" />
       </head>
       <body className="font-sans antialiased">

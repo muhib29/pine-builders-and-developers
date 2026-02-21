@@ -2,7 +2,10 @@ import type { Metadata } from 'next'
 import dynamicImport from 'next/dynamic'
 import { Navbar } from '@/components/layout/navbar'
 import { Footer } from '@/components/layout/footer'
-import { HeroCarousel } from '@/components/sections/hero-carousel'
+// import { HeroCarousel } from '@/components/sections/hero-carousel'
+const HeroCarousel = dynamicImport(() => import('../components/sections/hero-carousel').then(mod => ({ default: mod.HeroCarousel })), {
+  ssr: true,
+});
 import { siteSettings, projects, blogPosts } from '@/lib/data'
 export const dynamic = 'force-static'
 // import dynamicImport from 'next/dynamic'

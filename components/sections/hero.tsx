@@ -58,8 +58,9 @@ export function Hero({
           src={imageSrc || "/placeholder.svg"}
           alt="Construction site"
           fill
-          className="object-cover"
-          priority
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+          priority={true}
+          className="w-full h-full object-cover"
           quality={90}
         />
       </div>

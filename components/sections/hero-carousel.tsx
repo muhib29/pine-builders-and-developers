@@ -1,12 +1,14 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
+import { useIsMobile } from '@/hooks/use-mobile'
 import Link from 'next/link'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import AnimatedHeading from '@/components/ui/animated-heading'
 import { HeroImage } from '@/components/ui/hero-image'
+
 
 interface Slide {
   id: number
@@ -17,6 +19,7 @@ interface Slide {
   ctaText: string
   ctaLink: string
 }
+export const HeroCarousel: React.FC = () => {
 
 const slides: Slide[] = [
   {
@@ -69,6 +72,7 @@ const slides: Slide[] = [
     ctaText: 'Learn About Us',
     ctaLink: '/about',
   },
+  
   // {
   //   id: 5,
   //   image: '/images/hero/hero-5.webp',
@@ -110,11 +114,15 @@ const slides: Slide[] = [
   // },
 ]
 
-export function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
   const [direction, setDirection] = useState<'left' | 'right'>('right')
   const [isPaused, setIsPaused] = useState(false)
+
+  // Custom hook for media query
+  const isMobile = useIsMobile()
+  // Show 3 slides on mobile, 5 on larger screens
+  const filteredSlides = isMobile ? slides.slice(0, 3) : slides.slice(0, 5)
 
   const goToSlide = useCallback((index: number, dir?: 'left' | 'right') => {
     if (isAnimating) return
@@ -125,12 +133,12 @@ export function HeroCarousel() {
   }, [currentSlide, isAnimating])
 
   const nextSlide = useCallback(() => {
-    goToSlide((currentSlide + 1) % slides.length, 'right')
-  }, [currentSlide, goToSlide])
+    goToSlide((currentSlide + 1) % filteredSlides.length, 'right')
+  }, [currentSlide, goToSlide, filteredSlides.length])
 
   const prevSlide = useCallback(() => {
-    goToSlide((currentSlide - 1 + slides.length) % slides.length, 'left')
-  }, [currentSlide, goToSlide])
+    goToSlide((currentSlide - 1 + filteredSlides.length) % filteredSlides.length, 'left')
+  }, [currentSlide, goToSlide, filteredSlides.length])
 
   useEffect(() => {
     if (isPaused) return
@@ -147,6 +155,11 @@ export function HeroCarousel() {
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [handleKeyDown])
+
+  useEffect(() => {
+    // Reset slide index if filteredSlides changes
+    setCurrentSlide(0)
+  }, [filteredSlides.length])
 
   return (
     <section
@@ -170,7 +183,7 @@ export function HeroCarousel() {
         </svg>
       </div>
       {/* Slides */}
-      {slides.map((slide, index) => (
+      {filteredSlides.map((slide, index) => (
         <div
           key={slide.id}
           className={cn(
@@ -196,6 +209,7 @@ export function HeroCarousel() {
                 src={slide.image || '/placeholder.svg'}
                 alt={slide.heading}
                 priority={index === 0}
+                className="w-full h-full"
               />
             )}
           </div>
@@ -313,7 +327,7 @@ export function HeroCarousel() {
 
       {/* Slide Indicators */}
       <div className="absolute bottom-8  left-1/2 z-30 flex -translate-x-1/2 items-center gap-3 sm:bottom-12">
-        {slides.map((_, index) => (
+        {filteredSlides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
@@ -345,7 +359,7 @@ export function HeroCarousel() {
           {String(currentSlide + 1).padStart(2, '0')}
         </span>
         <span className="text-white/50">/</span>
-        <span>{String(slides.length).padStart(2, '0')}</span>
+        <span>{String(filteredSlides.length).padStart(2, '0')}</span>
       </div>
 
       {/* Scroll Indicator */}
