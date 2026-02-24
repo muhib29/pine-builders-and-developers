@@ -161,30 +161,66 @@ export function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-secondary-foreground/10">
-        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center justify-between gap-4 text-center md:flex-row md:text-left">
-            <p className="text-sm text-secondary-foreground/60">
-              &copy; {new Date().getFullYear()} Pine Builders & Developers. All rights
-              reserved.
-            </p>
-            <div className="flex gap-6">
-              <Link
-                href="/privacy-policy"
-                className="text-sm text-secondary-foreground/60 transition-colors hover:text-primary"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/terms-of-service"
-                className="text-sm text-secondary-foreground/60 transition-colors hover:text-primary"
-              >
-                Terms of Service
-              </Link>
-            </div>
-          </div>
-        </div>
+
+{/* Bottom Bar */}
+{/* Digital Partner Strip */}
+{/* <div className="border-t border-secondary-foreground/10">
+  <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8 text-center">
+    <p className="text-[11px] tracking-wide text-secondary-foreground/40">
+      Digital Partner{" "}
+      <Link
+        href="https://syedmuhib.vercel.app/"
+        target="_blank"
+        className="transition-colors hover:text-primary"
+      >
+        Syed Muhib
+      </Link>
+    </p>
+  </div>
+</div> */}
+
+{/* Bottom Bar */}
+<div className="border-t border-secondary-foreground/10">
+  <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+    <div className="flex flex-col gap-4 text-center md:flex-row md:items-center md:justify-between md:text-left">
+      
+      {/* Left Side */}
+      <div>
+        <p className="text-sm text-secondary-foreground/60">
+          &copy; {new Date().getFullYear()} Pine Builders & Developers. All rights reserved.
+        </p>
+
+        <p className="mt-1 text-xs tracking-wide text-secondary-foreground/40">
+          Digital Partner{" "}
+          <Link
+            href="https://syedmuhib.vercel.app/"
+            target="_blank"
+            className="transition-colors text-primary"
+          >
+            Syed Muhib Farooq
+          </Link>
+        </p>
       </div>
+
+      {/* Right Side */}
+      <div className="flex justify-center gap-6 md:justify-end">
+        <Link
+          href="/privacy-policy"
+          className="text-sm text-secondary-foreground/60 transition-colors hover:text-primary"
+        >
+          Privacy Policy
+        </Link>
+        <Link
+          href="/terms-of-service"
+          className="text-sm text-secondary-foreground/60 transition-colors hover:text-primary"
+        >
+          Terms of Service
+        </Link>
+      </div>
+
+    </div>
+  </div>
+</div>
     </footer>
   )
 }
