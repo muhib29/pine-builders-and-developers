@@ -40,7 +40,7 @@ export function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://www.facebook.com/profile.php?id=61588158037232"
+                href="https://www.facebook.com/pinebuilders/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary-foreground/10 text-secondary-foreground transition-colors hover:bg-primary hover:text-primary-foreground"

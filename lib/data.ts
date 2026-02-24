@@ -104,7 +104,7 @@ export const projects = [
     category: 'Residential',
     description:
       'Pine Comfort is a well-executed development designed to meet modern standards of planning and construction. With a focus on reliability and functionality, the project offers a secure and well-managed environment suited to contemporary needs.',
-    imageSrc: '/images/projects/pine-comfort/4.webp',
+    imageSrc: '/images/projects/pine-comfort/image.webp',
     gallery: [
       '/images/projects/pine-comfort/1.webp',
       '/images/projects/pine-comfort/2.webp',
@@ -142,7 +142,9 @@ export const projects = [
     category: 'Residential',
     description:
       'Royal Kishts Heights is a contemporary development designed to provide a refined and comfortable living experience. Built with attention to design, structure, and overall planning, the project reflects a commitment to delivering dependable and lasting value.',
-    imageSrc: '/images/projects/royal-kishts-heights/1.webp',
+    // imageSrc: '/images/projects/royal-kishts-heights/1.webp',
+    imageSrc: '/images/projects/royal-kishts-heights/main.webp',
+
     gallery: [
       '/images/projects/royal-kishts-heights/2.webp',
       '/images/projects/royal-kishts-heights/3.webp',
@@ -241,7 +243,7 @@ export const blogPosts = [
     author: {
       name: 'Pine Builders Editorial Team',
       role: 'Official Publication',
-       image: '/images/logo12.webp',
+      image: '/images/logo12.webp',
     },
     category: 'Tips & Guides',
     publishedAt: '2024-01-10',
@@ -273,7 +275,7 @@ export const blogPosts = [
     author: {
       name: 'Pine Builders Editorial Team',
       role: 'Official Publication',
-       image: '/images/logo12.webp',
+      image: '/images/logo12.webp',
     },
     category: 'Project Updates',
     publishedAt: '2024-01-05',
@@ -305,7 +307,7 @@ export const blogPosts = [
     author: {
       name: 'Pine Builders Editorial Team',
       role: 'Official Publication',
-       image: '/images/logo12.webp',
+      image: '/images/logo12.webp',
     },
     category: 'Tips & Guides',
     publishedAt: '2023-12-28',
