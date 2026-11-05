@@ -38,6 +38,44 @@ export const siteSettings = {
 }
 
 export const projects = [
+    {
+    _id: '8',
+    title: 'A GREAT EXPERIENCE IN PIPEX EXPO 2026 SAUDIA ARABIA RIYAD',
+    slug: { current: 'pipex-expo-2026-riyadh' },
+    location: 'Riyadh, Saudi Arabia',
+    year: '2026',
+    category: 'Events',
+    description:
+      'Pine Builders and Developers proudly participated in PIPEX Expo 2026 in Riyadh, Saudi Arabia. The event gave us the opportunity to showcase our projects, connect with international investors and partners, and share our vision of quality construction and modern development.',
+    imageSrc: '/images/projects/pipex-expo-2026/image.png',
+    gallery: [
+      '/images/projects/pipex-expo-2026/1.jpg',
+      '/images/projects/pipex-expo-2026/2.jpg',
+      '/images/projects/pipex-expo-2026/3.jpg',
+      '/images/projects/pipex-expo-2026/4.jpg',
+    ],
+    featured: true,
+    status: 'Completed',
+  },
+    {
+    _id: '3',
+    title: 'PINE CORNER',
+    slug: { current: 'pine-corner' },
+    location: 'Strategic Urban Location',
+    year: '2021',
+    category: '',
+    description:
+      'Pine Corner is a carefully planned residential development created to deliver comfort, convenience, and a modern lifestyle. The project reflects a commitment to quality construction and practical design, ensuring a welcoming environment for residents.',
+    imageSrc: '/images/projects/pine-corner/image.png',
+    gallery: [
+      '/images/projects/pine-corner/1.webp',
+      '/images/projects/pine-corner/2.webp',
+      '/images/projects/pine-corner/3.webp',
+      '/images/projects/pine-corner/4.webp',
+    ],
+    featured: true,
+    status: 'Completed',
+  },
   {
     _id: '1',
     title: ' PINE CITY',
@@ -76,25 +114,7 @@ export const projects = [
     featured: true,
     status: 'Completed',
   },
-  {
-    _id: '3',
-    title: 'PINE CORNER',
-    slug: { current: 'pine-corner' },
-    location: 'Strategic Urban Location',
-    year: '2021',
-    category: 'Residential',
-    description:
-      'Pine Corner is a carefully planned residential development created to deliver comfort, convenience, and a modern lifestyle. The project reflects a commitment to quality construction and practical design, ensuring a welcoming environment for residents.',
-    imageSrc: '/images/projects/pine-corner/5.webp',
-    gallery: [
-      '/images/projects/pine-corner/1.webp',
-      '/images/projects/pine-corner/2.webp',
-      '/images/projects/pine-corner/3.webp',
-      '/images/projects/pine-corner/4.webp',
-    ],
-    featured: true,
-    status: 'Completed',
-  },
+
   {
     _id: '4',
     title: 'Pine Comfort',
@@ -154,6 +174,26 @@ export const projects = [
     featured: true,
     status: 'Under Development',
   },
+  {
+    _id: '7',
+    title: 'PINE VILLAS',
+    slug: { current: 'pine-villas' },
+    location: 'Prime Location',
+    year: '2026',
+    category: 'Residential',
+    description:
+      'Pine Villas offers 100 sq yard luxury villas designed for modern family living. Each villa is built with premium finishes, smart space planning, and quality construction, delivering comfort, privacy, and lasting value in a well-planned community.',
+    imageSrc: '/images/projects/pine-villas/image.png',
+    gallery: [
+      '/images/projects/pine-villas/1.jpg',
+      '/images/projects/pine-villas/2.jpg',
+      '/images/projects/pine-villas/5.jpg',
+      '/images/projects/pine-villas/4.jpg',
+    ],
+    featured: true,
+    status: 'Under Development',
+  },
+
 ];
 
 

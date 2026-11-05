@@ -47,8 +47,8 @@ export function Navbar() {
         <nav className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 transition-opacity duration-300 hover:opacity-90">
-            <div className="mt-7 -ml-5 items-center">
-              <Image className="top-10" src="/images/logo12.webp" alt="Pine Builders and Developers Logo" width={280} height={110} />
+            <div className="mt-1 -ml-5 items-center">
+              <Image className="" src="/images/logo.png" alt="Pine Builders and Developers Logo" width={220} height={150} />
             </div>
           </Link>
 

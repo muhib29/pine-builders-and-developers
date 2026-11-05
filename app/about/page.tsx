@@ -120,7 +120,7 @@ export default function AboutPage() {
                 <div className="relative">
                   <div className="relative h-[600px] w-full overflow-hidden rounded-lg bg-muted shadow-lg">
                     <Image
-                      src="/images/services/ceo.png"
+                      src="/images/services/ceo.jpeg"
                       alt="CEO and Founder"
                       fill
                       className="object-contain p-6"

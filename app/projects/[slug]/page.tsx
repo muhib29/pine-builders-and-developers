@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowLeft, MapPin, Calendar, Tag, ArrowRight } from 'lucide-react'
+import { ArrowLeft, MapPin, Calendar, Tag, ArrowRight, Landmark } from 'lucide-react'
 import { Navbar } from '@/components/layout/navbar'
 import { Footer } from '@/components/layout/footer'
 import { AnimatedSection } from '@/components/ui/animated-section'
@@ -127,6 +127,14 @@ export default async function ProjectDetailPage({ params }: Props) {
               alt={project.title}
               fill
               className="object-cover mt-5 md:mt-18"
+              style={{
+                objectPosition:
+                  project.slug.current === 'pipex-expo-2026-riyadh'
+                    ? 'center 25%'
+                    : project.slug.current === 'pine-corner'
+                      ? 'center 35%'
+                    : undefined,
+              }}
               priority
               sizes="100vw"
             />
@@ -143,12 +151,12 @@ export default async function ProjectDetailPage({ params }: Props) {
                 Back to Projects
               </Link>
               <div className=" flex-wrap items-center gap-4 text-sm text-secondary-foreground/80  md:flex hidden">
-                {project.category && (
+                {/* {project.category && (
                   <span className="flex items-center gap-1.5">
                     <Tag className="h-4 w-4 text-primary" />
                     {project.category}
                   </span>
-                )}
+                )} */}
                 {project.location && (
                   <span className="flex items-center gap-1.5">
                     <MapPin className="h-4 w-4 text-primary" />
@@ -162,6 +170,12 @@ export default async function ProjectDetailPage({ params }: Props) {
                   </span>
                 )}
               </div>
+              {project.slug.current === 'pine-corner' && (
+                <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-primary/50 bg-secondary/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-secondary-foreground shadow-lg backdrop-blur-sm sm:text-sm">
+                  <Landmark className="h-4 w-4 shrink-0 text-primary" />
+                  Easy Islamic Banking Loan Facilities
+                </div>
+              )}
               <h1 className="mt-4 font-serif text-4xl font-bold text-secondary-foreground sm:text-5xl lg:text-6xl">
                 {project.title}
               </h1>

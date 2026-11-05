@@ -7,7 +7,7 @@ type Props = {
   projects: any[]
 }
 
-const categories = ['All', 'Residential', 'Commercial']
+const categories = ['All', 'Residential', 'Commercial', 'Events']
 
 export default function ProjectsList({ projects }: Props) {
   const [active, setActive] = useState('All')
